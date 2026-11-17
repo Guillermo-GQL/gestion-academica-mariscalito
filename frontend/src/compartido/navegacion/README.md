@@ -5,7 +5,9 @@ Referencias de Figma:
 - [Menú expandido](https://www.figma.com/design/QoQhAcELypbNqV0jRPckVO?node-id=865-811).
 - [Menú contraído](https://www.figma.com/design/QoQhAcELypbNqV0jRPckVO?node-id=865-1500).
 
-El ancho es de 256 px expandido y 72 px contraído. En escritorio, los submenús expandidos muestran texto, tal como aparecen en Figma; al contraer, muestran su ícono. Los íconos de los cuatro grupos permanecen visibles en ambos estados. En móvil, el panel abierto muestra las etiquetas completas. La navegación principal tiene desplazamiento propio y la zona de perfil y salida permanece al pie.
+El ancho es de 256 px expandido y 72 px contraído. En escritorio, los submenús expandidos muestran texto, tal como aparecen en Figma; al contraer, muestran su ícono. Los íconos de los cuatro grupos permanecen visibles en ambos estados. Las cabeceras son botones accesibles que permiten desplegar sus opciones; la sección activa se abre al navegar. Contraer la barra conserva todas las opciones como íconos.
+
+En móvil (hasta 600 px), el panel sigue la referencia de 320 px, con botón de cierre, tarjetas de navegación y acceso al perfil al pie. Los símbolos de las primeras seis tarjetas proceden de la variante móvil `2049:450`; las opciones adicionales conservan sus SVG para que todas las rutas sigan accesibles. En tablet se mantiene la barra de íconos. La navegación principal tiene desplazamiento propio y la zona inferior permanece al pie.
 
 `iconos.ts` centraliza los recursos SVG locales. `pageIcons` exige un ícono por cada `PageId`: al añadir una ruta sin su ícono, TypeScript lo detecta durante la compilación. Las imágenes se centran sin modificar las dimensiones, proporciones ni colores de los archivos originales. No se necesitan bibliotecas de íconos ni URLs temporales.
 
@@ -44,3 +46,5 @@ Periodos académicos se mantiene como estaba en la base; su pertenencia al módu
 ## Verificación manual
 
 Desde `frontend`, ejecutar `npm.cmd run dev`. Revisar `#panel`, `#roles`, `#usuarios`, `#vigencia` y `#periodos`, alternando el menú expandido y contraído. Comprobar los cuatro grupos, los íconos de cada opción, el aviso nativo con su nombre y el marcado de la ruta activa. En móvil, abrir el menú, seleccionar una opción y comprobar que se cierre. En ventanas de poca altura, revisar que todas las opciones sean alcanzables mediante desplazamiento. Ejecutar `npm.cmd run build` antes de integrar.
+
+La página de desarrollo `/pruebas/componentes.html` permite comprobar los grupos, la cabecera fija y los componentes comunes. Con el panel móvil abierto, Escape o el fondo lo cierran; Tab permanece en el panel y el contenido de fondo queda inactivo.

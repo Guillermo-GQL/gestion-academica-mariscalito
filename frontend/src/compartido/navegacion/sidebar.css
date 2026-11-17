@@ -7,14 +7,15 @@
   top: 0;
   display: flex;
   flex-direction: column;
+  align-self: start;
   height: 100dvh;
   padding: 24px 12px 0;
   overflow: hidden;
   background: #102d8a;
 }
-
-.m1-sidebar .brand { flex: none; height: 48px; gap: 12px; margin: 0 8px 12px; font-size: 13px; }
-.m1-sidebar .brand strong { position: relative; white-space: nowrap; line-height: 16px; }
+.m1-sidebar .brand { position: relative; flex: none; height: 48px; gap: 12px; margin: 0 8px 12px; font-size: 13px; }
+.m1-brand-text { min-width: 0; }
+.m1-sidebar .brand strong { position: relative; display: block; white-space: nowrap; line-height: 16px; }
 .m1-sidebar .brand strong::after { content: ""; position: absolute; top: 24px; left: 0; width: 28px; height: 2px; background: #d4af37; }
 .m1-sidebar .m1-sidebar-toggle { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: 0 4px 8px auto; padding: 0; border: 0; background: transparent; }
 .m1-sidebar .m1-sidebar-toggle .menu-icon { width: 32px; height: 32px; }
@@ -23,42 +24,76 @@
 .m1-sidebar .nav-group { flex: none; margin: 0 0 35px; }
 .m1-sidebar .nav-group:first-child { margin-bottom: 36px; }
 .m1-sidebar .nav-group a, .m1-sidebar .m1-group-label { display: flex; align-items: center; gap: 12px; padding: 0 16px; font-size: 13px; line-height: 16px; }
-.m1-sidebar .m1-group-label { height: 30px; margin-bottom: 6px; padding-right: 4px; color: var(--m1-nav-heading); }
+.m1-sidebar .m1-group-label { width: 100%; height: 30px; margin-bottom: 6px; padding-right: 4px; border: 0; border-radius: 6px; background: transparent; color: var(--m1-nav-heading); text-align: left; }
 .m1-group-label strong { font-weight: 700; white-space: nowrap; }
 .m1-sidebar .m1-group-label .menu-icon-chevron { margin-left: auto; width: 10px; }
+.m1-group-label[aria-expanded="false"] .menu-icon-chevron img { transform: rotate(-90deg); }
 .m1-sidebar .nav-group a { min-height: 44px; color: var(--m1-nav-text); font-weight: 400; border-radius: 0 8px 8px 0; }
-.m1-sidebar .nav-group a:hover { background: #ffffff0a; }
+.m1-sidebar .nav-group a:hover, .m1-sidebar .m1-group-label:hover { background: #ffffff0a; }
 .m1-sidebar .m1-submenu a { min-height: 29px; padding-left: 50px; font-size: 12px; line-height: 15px; }
-/* Figma expandido: los submenús son texto. Contraído: cada opción conserva su SVG. */
 .m1-sidebar .m1-submenu a > .menu-icon { display: none; }
 .m1-sidebar .nav-group[aria-label="Seguridad"] { margin-bottom: 0; }
 .m1-sidebar .nav-group[aria-label="Seguridad"] a { min-height: 32px; font-size: 13px; line-height: 16px; }
 .m1-sidebar .nav-group.m1-parameters { margin-top: auto; margin-bottom: 18px; padding-top: 35px; }
 .m1-sidebar .nav-group a[aria-current="page"] { color: #fff; background: var(--m1-nav-active); box-shadow: inset 3px 0 var(--m1-nav-accent); }
 .m1-sidebar .nav-group:first-child a[aria-current="page"] { font-weight: 700; }
-.m1-sidebar .nav-group.m1-nav-footer { display: grid; align-content: start; gap: 10px; height: 172px; margin: 0 4px; padding-top: 17px; border-top: 1px solid #345077; }
+.m1-sidebar .nav-group.m1-nav-footer { height: 172px; margin: 0 4px; padding-top: 17px; border-top: 1px solid #345077; }
+.m1-nav-footer .m1-group-pages { display: grid; gap: 10px; }
 .m1-sidebar .m1-nav-footer a { padding-inline: 12px; color: var(--m1-nav-heading); }
 .m1-sidebar .menu-icon { display: grid; flex: none; place-items: center; width: 22px; height: 22px; }
 .m1-sidebar .menu-icon img { display: block; flex: none; max-width: none; }
+.m1-sidebar .m1-brand-role, .m1-sidebar .m1-mobile-close, .m1-sidebar .m1-mobile-glyph,
+.m1-sidebar .m1-mobile-chevron, .m1-sidebar .m1-mobile-account { display: none; }
 
-@media (min-width: 781px) {
+@media (min-width: 601px) {
+  .layout:not(.compact) .m1-group-pages[data-collapsed="true"] { display: none; }
   .layout.compact .m1-sidebar .brand { justify-content: center; margin-inline: 0; }
+  .layout.compact .m1-sidebar .m1-brand-text { display: none; }
   .layout.compact .m1-sidebar .m1-sidebar-toggle { margin-inline: auto; }
   .layout.compact .m1-sidebar .nav-group a,
   .layout.compact .m1-sidebar .m1-group-label { justify-content: center; padding-inline: 0; }
   .layout.compact .m1-sidebar .m1-group-label strong,
   .layout.compact .m1-sidebar .menu-icon-chevron { display: none; }
   .layout.compact .m1-sidebar .m1-submenu a > .menu-icon { display: grid; }
+  .layout.compact .m1-sidebar .nav-group .menu-icon { transform: translateX(1px); }
   .layout.compact .m1-sidebar .nav-group.m1-parameters { margin-top: 0; margin-bottom: 0; }
 }
 
-@media (max-width: 780px) {
-  .layout .m1-sidebar { display: none; }
+@media (max-width: 600px) {
+  .layout .m1-sidebar { display: none; padding: 20px 16px 0; }
   .layout .m1-sidebar.abierto { display: flex; }
-  .layout .m1-sidebar .m1-sidebar-toggle { display: none; }
-  .m1-sidebar .brand { margin-bottom: 24px; }
-  .m1-sidebar .m1-submenu a { min-height: 36px; }
-  .m1-sidebar .nav-group[aria-label="Seguridad"] a { min-height: 36px; }
-  .layout.compact .m1-sidebar .nav-group a { justify-content: flex-start; }
+  .m1-sidebar .brand { gap: 14px; margin: 0 4px 44px; }
+  .m1-sidebar .brand::after { content: ""; position: absolute; left: 0; top: 64px; width: 104px; height: 3px; border-radius: 2px; background: #d4af37; }
+  .m1-sidebar .brand strong { font-size: 13px; }
+  .m1-sidebar .brand strong::after { display: none; }
+  .m1-sidebar .m1-brand-role { display: block; margin-top: 6px; color: #cbd5e1; font-size: 9px; line-height: 13px; }
+  .m1-sidebar .m1-mobile-close { position: absolute; top: 4px; right: -4px; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; border-radius: 10px; background: #173f78; color: white; font-size: 21px; }
+  .m1-sidebar .m1-brand-text { align-self: flex-start; padding-top: 3px; padding-right: 34px; }
+  .layout .m1-sidebar .m1-sidebar-toggle, .m1-sidebar .m1-group-label,
+  .m1-sidebar .nav-group.m1-nav-footer { display: none; }
+  .m1-sidebar .m1-nav-scroll { gap: 10px; padding-bottom: 16px; }
+  .m1-sidebar .nav-group, .m1-sidebar .m1-group-pages { display: contents; }
+  .m1-sidebar .nav-group a, .layout.compact .m1-sidebar .nav-group a,
+  .m1-sidebar .nav-group[aria-label="Seguridad"] a {
+    position: relative; flex: none; justify-content: flex-start; gap: 12px; min-height: 52px;
+    padding: 9px 12px; border-radius: 12px; background: #173f78; color: white;
+    font-size: 11px; font-weight: 600; line-height: 16px;
+  }
+  .m1-sidebar .nav-group a[aria-current="page"] { background: #0ea5a8; box-shadow: inset 3px 0 #d4af37; font-weight: 700; }
+  .m1-sidebar .nav-group a > .nav-label { align-self: flex-start; margin-top: 3px; }
+  .m1-sidebar .nav-group a > .menu-icon, .m1-sidebar .m1-mobile-glyph { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 9px; background: #24558f; }
+  .m1-sidebar .nav-group a.m1-has-mobile-glyph > .menu-icon { display: none; }
+  .m1-sidebar .m1-mobile-glyph { color: white; font-size: 16px; line-height: 22px; }
+  .m1-sidebar a[aria-current="page"] .m1-mobile-glyph,
+  .m1-sidebar .m1-mobile-glyph-usuarios { background: #2dd4bf; color: #0f2f5f; }
+  .m1-sidebar .m1-mobile-chevron { display: block; align-self: flex-start; margin-top: 2px; margin-left: auto; font-size: 20px; line-height: 24px; }
+  .m1-sidebar .m1-mobile-account { display: flex; flex: none; align-items: center; height: 64px; margin-bottom: 36px; padding: 12px; gap: 8px; border-radius: 12px; background: #173f78; }
+  .m1-mobile-account a { display: flex; align-items: center; gap: 12px; color: white; }
+  .m1-mobile-account > a:first-child { flex: 1; min-width: 0; }
+  .m1-mobile-account > a:first-child > span:last-child { align-self: flex-start; padding-top: 1px; }
+  .m1-mobile-account > a:last-child { justify-content: center; width: 28px; font-size: 18px; }
+  .m1-mobile-account .m1-mobile-avatar { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #0ea5a8; font-size: 10px; font-weight: 700; }
+  .m1-mobile-account strong { display: block; font-size: 11px; font-weight: 600; line-height: 16px; }
+  .m1-mobile-account small { display: block; margin-top: 4px; color: #cbd5e1; font-size: 8px; line-height: 12px; }
 }
 
