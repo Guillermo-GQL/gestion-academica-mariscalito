@@ -18,7 +18,7 @@ export function App() {
   </>
   return <Notifications>{page?.standalone
     ? View ? content : <main id="contenido" tabIndex={-1} className="content">{content}</main>
-    : <Layout route={page?.navigationId ?? route} routeKey={route} group={page?.group} title={page?.title} sectionTitle={page?.sectionTitle}>
+    : <Layout route={page?.navigationId ?? route} group={page?.group} title={page?.title} sectionTitle={page?.sectionTitle}>
         {content}
       </Layout>}
   </Notifications>

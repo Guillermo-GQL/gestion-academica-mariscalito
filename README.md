@@ -91,19 +91,9 @@ Importa desde `frontend/src/compartido/componentes`:
 | `UnsavedDialog` | Confirmación para cambios sin guardar; recibe `onStay` y `onDiscard`. |
 | `Dropdown` | Menú de opciones con `label` y acciones `onSelect`; se cierra al elegir, pulsar Escape o hacer clic fuera. |
 | `Panel` | Panel con `title`, contenido y `onClose` opcional. |
-| `useNotify` | Muestra `{ type: 'success' \| 'warning' \| 'error' \| 'info', message, description? }`; un aviso sustituye al anterior. Éxito e información duran 4 s; advertencia, 5 s; error, 6 s. |
+| `useNotify` | Muestra `{ type: 'success' \| 'warning' \| 'error', message }`; un aviso sustituye al anterior y se cierra a los cinco segundos. |
 
 El proveedor de avisos ya está montado en `App`. La cabecera incluye el panel de notificaciones como ejemplo.
-
-Los avisos también se cierran al cambiar de pantalla, abrir un diálogo o iniciar otra acción. `UnsavedDialog` conserva las acciones «Sí, salir» y «No, permanecer» del diseño. Los grupos del menú admiten despliegue individual; al navegar se abre el grupo de la sección activa.
-
-## Comprobar la base
-
-Con el servidor de desarrollo iniciado, abrir `/pruebas/componentes.html`. Esta página permite probar las notificaciones, su reemplazo, los diálogos de confirmación y cambios sin guardar, el desplegable y el desplazamiento del layout. También contiene una lista de comprobaciones para escritorio, tablet y móvil.
-
-La página de pruebas no aparece en el menú del sistema ni se incluye como entrada de la compilación de producción. Sus archivos sí se verifican con TypeScript durante `npm run build`.
-
-Referencias de ancho: escritorio a 1440 px, tablet a 768 px y móvil a 390 px. En móvil, comprobar el cierre del panel, el recorrido del foco con Tab y el bloqueo del desplazamiento del fondo.
 
 ## Colaboración
 
