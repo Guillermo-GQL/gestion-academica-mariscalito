@@ -1,0 +1,18 @@
+.m1-button,.m1-dropdown summary { background:white; border:1px solid #dbe5f1; color:#123873; border-radius:10px; min-height:38px; padding:8px 14px; font-weight:600; }
+.m1-button:disabled { opacity:.5; cursor:default; }
+.m1-button.m1-primary { background:#102d8a; color:white; border-color:transparent; }
+.m1-button.m1-danger { background:#cf283e; color:white; border-color:transparent; }
+.m1-dialog,.m1-panel,.m1-dropdown ul,.m1-notice { background:white; border:1px solid #dbe5f1; border-radius:14px; box-shadow:0 12px 32px #142b8426; }
+.m1-dialog { position:fixed; margin:auto; width:min(520px,calc(100% - 24px)); max-height:calc(100dvh - 24px); overflow:auto; border-top:4px solid #102d8a; color:#1e293b; }
+.m1-dialog::backdrop { background:#0f172a8c; backdrop-filter:blur(2px); }
+.m1-dialog header,.m1-panel header,.m1-dialog footer { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:14px 20px; border-bottom:1px solid #e2e8f0; }
+.m1-dialog header h2,.m1-panel header h2 { flex:1; font-weight:650; }
+.m1-dialog footer { justify-content:flex-end; border-top:1px solid #e2e8f0; border-bottom:0; }
+.m1-dialog-body,.m1-panel-body { padding:16px 20px; }
+.m1-notice { position:fixed; z-index:10; inset:84px 16px auto auto; max-width:min(380px,calc(100% - 32px)); display:flex; gap:12px; align-items:center; border-left:4px solid #0e9d7a; padding:12px; }
+.m1-notice-warning { border-left-color:#d4ab2d; }
+.m1-notice-error { border-left-color:#cf283e; }
+.m1-dropdown { position:relative; width:max-content; max-width:100%; }
+.m1-dropdown summary { cursor:pointer; }
+.m1-dropdown ul { position:absolute; z-index:2; min-width:100%; padding:6px; }
+.m1-dropdown li button { width:100%; text-align:left; }
