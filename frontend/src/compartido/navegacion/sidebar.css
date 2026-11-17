@@ -1,59 +1,64 @@
-.layout .m1-sidebar { background:#142b84; padding:22px 12px; }
-.m1-sidebar .brand { gap:10px; margin:0 6px 14px; font-size:13px; }
-.m1-sidebar .brand strong::after { content:""; display:block; width:28px; height:2px; margin-top:7px; background:#d4ae32; }
-.m1-sidebar .m1-sidebar-toggle { display:grid; place-items:center; width:32px; height:32px; margin:0 10px 8px auto; padding:0; border:0; background:#244873; }
-.m1-sidebar-toggle[aria-expanded=false] .menu-icon { transform:scaleX(-1); }
-.m1-sidebar .nav-group { margin:0 0 22px; }
-.m1-sidebar .nav-group a,.m1-sidebar .m1-group-label { display:flex; align-items:center; gap:12px; min-height:36px; padding:6px 14px; font-size:13px; }
-.m1-sidebar .m1-group-label { color:#eef4ff; margin-bottom:4px; }
-.m1-group-label .menu-icon-chevron { margin-left:auto; width:10px; }
-.m1-sidebar .nav-group a { font-weight:400; color:#c4d3ec; }
-.m1-sidebar .m1-submenu a { padding-left:50px; min-height:30px; }
-.m1-sidebar .m1-submenu a > .menu-icon { display:none; }
-.m1-sidebar .nav-group a[aria-current=page] { color:#fff; background:#16546d; box-shadow:inset 3px 0 #0ea5a8; }
-.m1-sidebar .nav-group:last-child { border-top:1px solid #ffffff25; padding-top:14px; }
-.m1-sidebar .menu-icon { flex:none; display:block; width:20px; height:20px; background-position:center; background-repeat:no-repeat; background-size:auto; }
-.layout.compact .m1-sidebar .brand { justify-content:center; margin-inline:0; }
-.layout.compact .m1-sidebar .m1-sidebar-toggle { margin-inline:auto; }
-.layout.compact .m1-sidebar .nav-group a { padding-inline:0; justify-content:center; }
-.layout.compact .m1-sidebar .m1-group-label { display:none; }
-.layout.compact .m1-sidebar .m1-submenu a > .menu-icon { display:block; }
-@media (max-width:780px) {
-  .layout .m1-sidebar .m1-sidebar-toggle { display:none; }
-  .layout.compact .m1-sidebar .m1-group-label { display:flex; }
-  .layout.compact .m1-sidebar .nav-group a { justify-content:flex-start; padding-inline:14px; }
-  .layout.compact .m1-sidebar .m1-submenu a { padding-left:50px; }
-  .layout.compact .m1-sidebar .m1-submenu a > .menu-icon { display:none; }
+.layout .m1-sidebar {
+  --m1-nav-text: #bbcbe0;
+  --m1-nav-heading: #e2e8f0;
+  --m1-nav-active: #17566f;
+  --m1-nav-accent: #0ea5a8;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: 24px 12px 0;
+  overflow: hidden;
+  background: #102d8a;
 }
-@media (min-width:541px) and (max-width:970px) {
-  .roles-layout .m1-sidebar .m1-group-label,.usuarios-layout .m1-sidebar .m1-group-label,.roles-layout .m1-sidebar .m1-sidebar-toggle,.usuarios-layout .m1-sidebar .m1-sidebar-toggle { display:none; }
-  .roles-layout .m1-sidebar .nav-group a,.usuarios-layout .m1-sidebar .nav-group a { padding-inline:0; justify-content:center; }
-  .roles-layout .m1-sidebar .m1-submenu a > .menu-icon,.usuarios-layout .m1-sidebar .m1-submenu a > .menu-icon { display:block; }
+
+.m1-sidebar .brand { flex: none; height: 48px; gap: 12px; margin: 0 8px 12px; font-size: 13px; }
+.m1-sidebar .brand strong { position: relative; white-space: nowrap; line-height: 16px; }
+.m1-sidebar .brand strong::after { content: ""; position: absolute; top: 24px; left: 0; width: 28px; height: 2px; background: #d4af37; }
+.m1-sidebar .m1-sidebar-toggle { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: 0 4px 8px auto; padding: 0; border: 0; background: transparent; }
+.m1-sidebar .m1-sidebar-toggle .menu-icon { width: 32px; height: 32px; }
+.m1-sidebar #enlaces { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.m1-sidebar .m1-nav-scroll { display: flex; flex: 1; flex-direction: column; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #345077 transparent; }
+.m1-sidebar .nav-group { flex: none; margin: 0 0 35px; }
+.m1-sidebar .nav-group:first-child { margin-bottom: 36px; }
+.m1-sidebar .nav-group a, .m1-sidebar .m1-group-label { display: flex; align-items: center; gap: 12px; padding: 0 16px; font-size: 13px; line-height: 16px; }
+.m1-sidebar .m1-group-label { height: 30px; margin-bottom: 6px; padding-right: 4px; color: var(--m1-nav-heading); }
+.m1-group-label strong { font-weight: 700; white-space: nowrap; }
+.m1-sidebar .m1-group-label .menu-icon-chevron { margin-left: auto; width: 10px; }
+.m1-sidebar .nav-group a { min-height: 44px; color: var(--m1-nav-text); font-weight: 400; border-radius: 0 8px 8px 0; }
+.m1-sidebar .nav-group a:hover { background: #ffffff0a; }
+.m1-sidebar .m1-submenu a { min-height: 29px; padding-left: 50px; font-size: 12px; line-height: 15px; }
+/* Figma expandido: los submenús son texto. Contraído: cada opción conserva su SVG. */
+.m1-sidebar .m1-submenu a > .menu-icon { display: none; }
+.m1-sidebar .nav-group[aria-label="Seguridad"] { margin-bottom: 0; }
+.m1-sidebar .nav-group[aria-label="Seguridad"] a { min-height: 32px; font-size: 13px; line-height: 16px; }
+.m1-sidebar .nav-group.m1-parameters { margin-top: auto; margin-bottom: 18px; padding-top: 35px; }
+.m1-sidebar .nav-group a[aria-current="page"] { color: #fff; background: var(--m1-nav-active); box-shadow: inset 3px 0 var(--m1-nav-accent); }
+.m1-sidebar .nav-group:first-child a[aria-current="page"] { font-weight: 700; }
+.m1-sidebar .nav-group.m1-nav-footer { display: grid; align-content: start; gap: 10px; height: 172px; margin: 0 4px; padding-top: 17px; border-top: 1px solid #345077; }
+.m1-sidebar .m1-nav-footer a { padding-inline: 12px; color: var(--m1-nav-heading); }
+.m1-sidebar .menu-icon { display: grid; flex: none; place-items: center; width: 22px; height: 22px; }
+.m1-sidebar .menu-icon img { display: block; flex: none; max-width: none; }
+
+@media (min-width: 781px) {
+  .layout.compact .m1-sidebar .brand { justify-content: center; margin-inline: 0; }
+  .layout.compact .m1-sidebar .m1-sidebar-toggle { margin-inline: auto; }
+  .layout.compact .m1-sidebar .nav-group a,
+  .layout.compact .m1-sidebar .m1-group-label { justify-content: center; padding-inline: 0; }
+  .layout.compact .m1-sidebar .m1-group-label strong,
+  .layout.compact .m1-sidebar .menu-icon-chevron { display: none; }
+  .layout.compact .m1-sidebar .m1-submenu a > .menu-icon { display: grid; }
+  .layout.compact .m1-sidebar .nav-group.m1-parameters { margin-top: 0; margin-bottom: 0; }
 }
-@media (min-width:961px) and (max-width:970px) {
-  .roles-layout .m1-sidebar .m1-sidebar-toggle { display:grid; }
-  .roles-layout:not(.compact) .m1-sidebar .m1-group-label { display:flex; }
-  .roles-layout:not(.compact) .m1-sidebar .nav-group a { justify-content:start; padding-inline:14px; }
-  .roles-layout:not(.compact) .m1-sidebar .m1-submenu a { padding-left:50px; }
-  .roles-layout:not(.compact) .m1-sidebar .m1-submenu a > .menu-icon { display:none; }
+
+@media (max-width: 780px) {
+  .layout .m1-sidebar { display: none; }
+  .layout .m1-sidebar.abierto { display: flex; }
+  .layout .m1-sidebar .m1-sidebar-toggle { display: none; }
+  .m1-sidebar .brand { margin-bottom: 24px; }
+  .m1-sidebar .m1-submenu a { min-height: 36px; }
+  .m1-sidebar .nav-group[aria-label="Seguridad"] a { min-height: 36px; }
+  .layout.compact .m1-sidebar .nav-group a { justify-content: flex-start; }
 }
-@media (min-width:541px) and (max-width:600px) {
-  .usuarios-layout .m1-sidebar .m1-group-label { display:flex; }
-  .usuarios-layout .m1-sidebar .nav-group a { justify-content:start; padding-inline:14px; }
-  .usuarios-layout .m1-sidebar .m1-submenu a { padding-left:50px; }
-  .usuarios-layout .m1-sidebar .m1-submenu a > .menu-icon { display:none; }
-}
-.m1-sidebar .menu-icon-access { background-image:url("./access.svg"); }
-.m1-sidebar .menu-icon-activity { background-image:url("./activity.svg"); }
-.m1-sidebar .menu-icon-admin { background-image:url("./admin.svg"); }
-.m1-sidebar .menu-icon-briefcase { background-image:url("./briefcase.svg"); }
-.m1-sidebar .menu-icon-chevron { background-image:url("./chevron.svg"); }
-.m1-sidebar .menu-icon-logout { background-image:url("./logout.svg"); }
-.m1-sidebar .menu-icon-panel { background-image:url("./panel.svg"); }
-.m1-sidebar .menu-icon-password { background-image:url("./password.svg"); }
-.m1-sidebar .menu-icon-people { background-image:url("./people.svg"); }
-.m1-sidebar .menu-icon-profile { background-image:url("./profile.svg"); }
-.m1-sidebar .menu-icon-security { background-image:url("./security.svg"); }
-.m1-sidebar .menu-icon-settings { background-image:url("./settings.svg"); }
-.m1-sidebar .menu-icon-toggle { background-image:url("./toggle.svg"); }
 

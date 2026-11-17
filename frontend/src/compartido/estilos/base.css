@@ -2,7 +2,7 @@
 
 :root { font-family: "Inter Variable", Inter, sans-serif; color: #0f172a; background: #f8fafc; }
 .layout { display: grid; grid-template-columns: 256px minmax(0, 1fr); min-height: 100dvh; }
-.layout.compact { grid-template-columns: 80px minmax(0, 1fr); }
+.layout.compact { grid-template-columns: 72px minmax(0, 1fr); }
 .sidebar { min-width: 0; padding: 1rem .65rem; background: #102d8a; color: white; }
 .brand { display: flex; align-items: center; gap: .65rem; margin-bottom: 1rem; overflow-wrap: anywhere; }
 .brand img { flex: none; object-fit: contain; }
@@ -10,7 +10,6 @@
 .nav-group p { padding: .4rem .55rem; color: #dbeafe; font-size: .78rem; font-weight: 700; }
 .nav-group a { display: flex; align-items: center; gap: .55rem; padding: .5rem; min-height: 44px; border-radius: .5rem; font-size: .86rem; }
 .nav-group a:hover, .nav-group a[aria-current=page] { background: #155e75; }
-.nav-group a > span:first-child { flex: none; display: grid; place-items: center; width: 25px; font-weight: 700; }
 .compact .nav-label, .compact .brand strong, .compact .nav-group p { display: none; }
 .compact .nav-group a { justify-content: center; }
 button { cursor: pointer; padding: .45rem .6rem; border: 1px solid currentColor; border-radius: .5rem; font-size: .82rem; }

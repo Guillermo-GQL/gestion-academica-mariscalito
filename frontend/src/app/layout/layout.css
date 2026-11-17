@@ -10,6 +10,6 @@
   .m1-layout .topbar { background:#142b84; color:white; justify-content:flex-start; }
   .m1-mobile-brand { display:flex; align-items:center; gap:8px; font-weight:700; }
   .m1-layout .m1-breadcrumb { flex-basis:100%; order:3; }
-  .m1-layout .m1-sidebar.abierto { position:fixed; z-index:6; inset:0 auto 0 0; width:min(320px,85vw); overflow:auto; }
+  .m1-layout .m1-sidebar.abierto { position:fixed; z-index:6; inset:0 auto 0 0; width:min(256px,85vw); }
   .m1-scrim { display:block; position:fixed; z-index:5; inset:0; background:#0f172a80; border:0; border-radius:0; }
 }

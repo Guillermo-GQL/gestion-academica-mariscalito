@@ -12,8 +12,14 @@ export function App() {
   }, [])
   const page = pages.find(item => item.id === route)
   const View = page?.View
-  return <Notifications><Layout route={route} group={page?.group} title={page?.title}>
-    {View ? <View /> : <><h1>{page?.title ?? 'Pantalla no encontrada'}</h1>
-      {page ? <p>Sección en preparación.</p> : <a href="#panel">Volver al panel</a>}</>}
-  </Layout></Notifications>
+  const content = View ? <View /> : <>
+    <h1>{page?.title ?? 'Pantalla no encontrada'}</h1>
+    {page ? <p>Sección en preparación.</p> : <a href="#panel">Volver al panel</a>}
+  </>
+  return <Notifications>{page?.standalone
+    ? View ? content : <main id="contenido" tabIndex={-1} className="content">{content}</main>
+    : <Layout route={page?.navigationId ?? route} group={page?.group} title={page?.title} sectionTitle={page?.sectionTitle}>
+        {content}
+      </Layout>}
+  </Notifications>
 }

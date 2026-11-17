@@ -1,9 +1,5 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Ocultar men&#195;&#186;">
-<path id="Vector" d="M24 0H8C3.58172 0 0 3.58172 0 8V24C0 28.4183 3.58172 32 8 32H24C28.4183 32 32 28.4183 32 24V8C32 3.58172 28.4183 0 24 0Z" fill="#254976"/>
-<g id="Group">
-<path id="Vector_2" d="M10.1667 8.5H21.8333C22.7538 8.5 23.5 9.24619 23.5 10.1667V21.8333C23.5 22.7538 22.7538 23.5 21.8333 23.5H10.1667C9.24619 23.5 8.5 22.7538 8.5 21.8333V10.1667C8.5 9.24619 9.24619 8.5 10.1667 8.5Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#DDEAF7"/>
-<path id="Vector_3" d="M13.5 8.5V23.5M18.5 12.6667L16 16L18.5 19.3333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#DDEAF7"/>
-</g>
-</g>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 0H8C3.58172 0 0 3.58172 0 8V24C0 28.4183 3.58172 32 8 32H24C28.4183 32 32 28.4183 32 24V8C32 3.58172 28.4183 0 24 0Z" fill="#254976"/>
+<path d="M21.8333 8.5H10.1667C9.24619 8.5 8.5 9.24619 8.5 10.1667V21.8333C8.5 22.7538 9.24619 23.5 10.1667 23.5H21.8333C22.7538 23.5 23.5 22.7538 23.5 21.8333V10.1667C23.5 9.24619 22.7538 8.5 21.8333 8.5Z" stroke="#DDEAF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.5 8.5V23.5M18.5 12.6667L16 16L18.5 19.3333" stroke="#DDEAF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
