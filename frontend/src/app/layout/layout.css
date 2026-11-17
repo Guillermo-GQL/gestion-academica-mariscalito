@@ -1,0 +1,24 @@
+.m1-layout .workspace { min-width: 0; }
+.m1-layout .content { background: #f8fafc; min-height: calc(100dvh - var(--m1-header-height)); }
+.m1-layout .topbar {
+  position: sticky; top: 0; z-index: 4; height: var(--m1-header-height); min-height: var(--m1-header-height);
+  flex-wrap: nowrap; justify-content: space-between; padding: 0 48px 0 32px;
+  background: white; font-size: 12px; color: #64748b;
+}
+.m1-header-actions { display: flex; position: relative; flex: none; align-items: center; gap: 20px; margin-left: auto; }
+.m1-header-actions .m1-notifications-trigger { display: grid; place-items: center; width: 32px; height: 32px; min-height: 32px; padding: 0; border: 0; background: transparent; }
+.m1-notifications-trigger img { display: block; max-width: none; }
+.m1-header-actions .m1-panel { position: absolute; z-index: 1; right: 0; top: calc(100% + 12px); width: min(340px, calc(100vw - 32px)); }
+.m1-avatar { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #eff6ff; color: #102d8a; font-weight: 700; }
+.m1-mobile-brand, .m1-mobile-breadcrumb, .m1-scrim { display: none; }
+
+@media (max-width: 600px) {
+  .m1-layout .topbar { justify-content: flex-start; gap: 15px; padding: 0 16px; border: 0; background: #102d8a; color: white; }
+  .m1-layout .mobile-toggle { width: 19px; padding: 0; border: 0; border-radius: 0; font-size: 20px; font-weight: 700; line-height: 24px; }
+  .m1-mobile-brand { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .m1-layout .m1-breadcrumb, .m1-layout .m1-header-actions { display: none; }
+  .m1-layout .content { padding: 18px 16px 24px; }
+  .m1-mobile-breadcrumb { display: block; margin-bottom: 16px; color: #64748b; font-size: 11px; line-height: 16px; }
+  .m1-layout .m1-sidebar.abierto { position: fixed; z-index: 6; inset: 0 auto 0 0; width: min(320px, calc(100vw - 32px)); box-shadow: 10px 0 24px #05143847; }
+  .m1-scrim { display: block; position: fixed; z-index: 5; inset: 0; background: #0f172a8c; border: 0; border-radius: 0; }
+}

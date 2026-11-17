@@ -2,7 +2,12 @@ node_modules/
 dist/
 build/
 coverage/
+.vite/
 .env
 .env.*
 *.log
 .DS_Store
+
+# Copia local de la entrega inicial; la aplicación vigente está en /frontend/.
+/Mariano-M1-Base-Frontend/
+/Mariano-M1-Instrucciones.md
